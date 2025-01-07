@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Word Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color:rgb(23, 22, 22);
+        }
+          h1 {
+            color: #00d1b2;
+        }
+        .container {
+            margin: 50px auto;
+            width: 60%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+        }
+        .word {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            margin: 20px 0;
+        }
+        input, button, select {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color:rgb(23, 23, 23);
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color:rgb(83, 86, 86);
+        }
+        .hint-message, .message {
+            color: #ff5722;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Guess Word Game</h1>
+    <div class="container">
+        
+        <p class="word">{{ displayed_word }}</p>
+        <p class="message">{{ message }}</p>
+        <p class="hint-message">{{ hint_message }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-container">
+                <input type="text" name="guess" placeholder="Enter a letter" maxlength="1" required>
+                <button type="submit">Submit</button>
+            </div>
+            <div class="input-container">
+                <select name="hint_choice">
+                    <option value="">Select a hint</option>
+                    <option value="1">First letter</option>
+                    <option value="2">Word length</option>
+                    <option value="3">Last letter</option>
+                </select>
+                <button type="submit" name="guess" value="hint">Get Hint</button>
+            </div>
+            <button type="submit" name="guess" value="reset">Reset Game</button>
+        </form>
+        <p>You have {{ turns }} guesses left.</p>
+    </div>
+</body>
+</html>
