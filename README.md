@@ -18,15 +18,13 @@ This project is a collection of fun and interactive games developed using **HTML
 - PostgreSQL database integration
 
 ## 🛠️ Tech Stack
-- **Frontend:** HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS
 - **Backend:** Django
-- **Database:** PostgreSQL
 
 ## 🧰 Requirements
 Ensure you have the following installed:
 - Python 3.8+
 - Django
-- PostgreSQL
 - Git
 
 ## ⚙️ Installation
